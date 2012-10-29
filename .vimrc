@@ -61,8 +61,8 @@ set background=dark
 
 let mapleader=","
 
-nmap <Leader>v :e ~/.vimrc<CR>
-nmap <Leader>s :source ~/.vimrc<CR>
+nmap <Leader>v :e ~/github/vim/.vimrc<CR>
+nmap <Leader>s :source ~/github/vim/.vimrc<CR>
 
 " easier esc
 imap jk <esc>
@@ -73,7 +73,11 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-nnoremap <Leader>pwd :cd %:h<CR>
+" Switch between buffers
+nnoremap <silent> <leader>6 <c-^>
+"nnoremap <silent> <c-tab> :bn<cr>
+"nnoremap <silent> <c-s-tab> :bp<cr>
+
 nnoremap <Leader>a gg0vG$
 
 " Move within wrapped lines
@@ -101,4 +105,7 @@ inoremap <c-\> <c-r>*
 
 " Use normal regex
 nnoremap / /\v
+
+" Change to directory of current file
+nnoremap <silent> <leader>pwd :cd %:h<cr>:pwd<cr>
 
