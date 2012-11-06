@@ -1,3 +1,9 @@
+" Use Pathogen plugin
+call pathogen#infect()
+" :call pathogen#helptags() to generate all helptags
+
+source $VIMRUNTIME/macros/matchit.vim
+
 set nocompatible
 
 set incsearch
@@ -78,6 +84,9 @@ nnoremap <silent> <leader>6 <c-^>
 "nnoremap <silent> <c-tab> :bn<cr>
 "nnoremap <silent> <c-s-tab> :bp<cr>
 
+" Find first instance in the file (forward search)
+nnoremap <f3> ggnzz
+
 nnoremap <Leader>a gg0vG$
 
 " Move within wrapped lines
@@ -87,6 +96,10 @@ nnoremap k gk
 " Keep selection after indent
 vnoremap < <gv
 vnoremap > >gv
+
+" Resize the window
+nnoremap - 10<c-w>-
+nnoremap + 10<c-w>+
 
 " Fold the function by first finding outermost open curly brace, then center around cursor
 nnoremap <leader>ff 20[{zf%zz
