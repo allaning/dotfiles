@@ -122,3 +122,7 @@ nnoremap / /\v
 " Change to directory of current file
 nnoremap <silent> <leader>pwd :cd %:h<cr>:pwd<cr>
 
+" NERDTree
+nnoremap <leader>nt :NERDTree<cr>
+nnoremap <f9> :NERDTreeToggle<cr>
+
