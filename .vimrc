@@ -4,8 +4,10 @@ call pathogen#infect()
 
 source $VIMRUNTIME/macros/matchit.vim
 
-set nocompatible
+" Load ctags
+set tags=tags,~/ProcessConfigChecker/tags
 
+set nocompatible
 set incsearch
 set hlsearch
 set ignorecase
@@ -78,6 +80,10 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" Bubble line up/down
+nnoremap <a-up> ddkP
+nnoremap <a-down> ddp
 
 " Switch between buffers
 nnoremap <silent> <leader>6 <c-^>
