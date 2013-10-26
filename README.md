@@ -1,4 +1,6 @@
-vim
-===
+VIM Files
+=========
 
-vim files
+- VIM configuration file(s)
+- VIM presentation slides
+
