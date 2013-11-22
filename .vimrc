@@ -138,3 +138,7 @@ nnoremap <f9> :NERDTreeToggle<cr>
 " Tagbar
 nnoremap <silent> <F12> :TagbarToggle<CR>
 
+" Save session
+nnoremap <leader>mks :mksession! ~/.vimsession.vim<cr>
+nnoremap <leader>res :source ~/.vimsession.vim<cr>
+
