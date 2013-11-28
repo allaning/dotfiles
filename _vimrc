@@ -1,10 +1,4 @@
 set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
-
-
-""""""""""""""""""""" Allan's """"""""""""""""""""""""""
 
 " allow unsaved background buffers and remember marks/undo for them
 set hidden
@@ -70,8 +64,10 @@ imap jk <esc>
 
 nmap <Leader>v :e c:/allan/git/vim/_vimrc<CR>
 nmap <Leader>s :source c:/allan/git/vim/_vimrc<CR>
+
 nnoremap <Leader>pwd :cd %:h<CR>
-nnoremap <Leader>a gg0vG$
+nnoremap <Leader>a ggVG
+
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
