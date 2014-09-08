@@ -1,11 +1,12 @@
 " Use Pathogen plugin
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 " :call pathogen#helptags() to generate all helptags
 
 source $VIMRUNTIME/macros/matchit.vim
 
 " Load ctags
-set tags=tags,~/ProcessConfigChecker/tags
+"set tags=tags,~/ProcessConfigChecker/tags
 
 set nocompatible
 set incsearch
@@ -53,15 +54,15 @@ set dir=~\temp,~\tmp,.
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "colorscheme desert
-colorscheme molokai
+"colorscheme molokai
 "hi Normal guifg=grey80 guibg=grey5
 "hi LineNr guifg=#306888 guibg=grey15
 hi NonText guifg=grey20 guibg=grey10
 hi SpecialKey guifg=grey20 guibg=grey10
 "hi Search guibg=#5577ee
 
-nnoremap <f5> :colorscheme oceandeep<cr>
-nnoremap <f6> :colorscheme molokai<cr>
+"nnoremap <f5> :colorscheme oceandeep<cr>
+"nnoremap <f6> :colorscheme molokai<cr>
 
 set background=dark
 
@@ -71,8 +72,8 @@ set background=dark
 
 let mapleader=","
 
-nmap <Leader>v :e ~/github/vim/.vimrc<CR>
-nmap <Leader>s :source ~/github/vim/.vimrc<CR>
+nmap <Leader>v :e ~/github/allaning/vim/.vimrc<CR>
+nmap <Leader>s :source ~/github/allaning/vim/.vimrc<CR>
 
 " easier esc
 imap jk <esc>
