@@ -1,5 +1,5 @@
-VIM Files
-=========
+Dotfiles
+========
 
 - VIM configuration file(s)
 
