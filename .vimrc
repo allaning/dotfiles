@@ -47,8 +47,8 @@ if v:version > 700
     hi CursorLine guibg=grey5
 endif
 
-set backupdir=~\temp,~\tmp,.
-set dir=~\temp,~\tmp,.
+set backupdir=~/.vim/temp,~/temp,~/tmp,.
+set directory=~/.vim/temp,~/temp,~/tmp,.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOR
