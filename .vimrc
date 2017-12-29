@@ -1,6 +1,6 @@
 " Use Pathogen plugin
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
+"call pathogen#infect()
 " :call pathogen#helptags() to generate all helptags
 
 source $VIMRUNTIME/macros/matchit.vim
@@ -25,7 +25,7 @@ set listchars=tab:>-,trail:-,eol:¬
 "set lines=60 columns=120
 set guifont=Monospace\ 8
 set cmdheight=2
-set guioptions-=T " no toolbar
+"set guioptions-=T " no toolbar
 
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
@@ -72,8 +72,8 @@ set background=dark
 
 let mapleader=","
 
-nmap <Leader>v :e ~/github/allaning/vim/.vimrc<CR>
-nmap <Leader>s :source ~/github/allaning/vim/.vimrc<CR>
+nmap <leader>v :e ~/git/allaning/dotfiles/.vimrc<CR>
+nmap <leader>s :source ~/git/allaning/dotfiles/.vimrc<CR>
 
 " easier esc
 imap jk <esc>
@@ -83,6 +83,9 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" write buffer
+nnoremap <leader>w :w<cr>
 
 " Bubble line up/down
 nnoremap <a-up> ddkP
@@ -97,7 +100,7 @@ nnoremap <silent> <leader>6 <c-^>
 nnoremap <f3> ggnzz
 
 " Select All
-nnoremap <Leader>a ggVG
+nnoremap <leader>a ggVG
 
 " Move within wrapped lines
 nnoremap j gj
@@ -110,9 +113,6 @@ vnoremap > >gv
 " Resize the window
 nnoremap - 10<c-w>-
 nnoremap + 10<c-w>+
-
-" Fold the function by first finding outermost open curly brace, then center around cursor
-nnoremap <leader>ff 20[{zf%zz
 
 " Horizontal rule
 nnoremap <leader>l o================================================================================<cr><esc>
@@ -133,11 +133,11 @@ nnoremap / /\v
 nnoremap <silent> <leader>pwd :cd %:h<cr>:pwd<cr>
 
 " NERDTree
-nnoremap <leader>nt :NERDTree<cr>
-nnoremap <f9> :NERDTreeToggle<cr>
+"nnoremap <leader>nt :NERDTree<cr>
+"nnoremap <f9> :NERDTreeToggle<cr>
 
 " Tagbar
-nnoremap <silent> <F12> :TagbarToggle<CR>
+"nnoremap <silent> <F12> :TagbarToggle<CR>
 
 " Save session
 nnoremap <leader>mks :mksession! ~/.vimsession.vim<cr>
