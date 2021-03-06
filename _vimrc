@@ -19,7 +19,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set list  " show hidden characters
-set listchars=tab:>-,trail:-,eol:¬
+set listchars=tab:>-,trail:-
 set lines=60 columns=120
 set guifont=courier_new:h9
 set cmdheight=2
@@ -72,6 +72,9 @@ endif
 " Syntax
 au BufEnter,BufRead,BufNewFile,FileReadPost *.txt     setfiletype text
 au BufEnter,BufRead,BufNewFile,FileReadPost *.log     setfiletype log
+au BufEnter,BufRead,BufNewFile,FileReadPost *.lua     setfiletype lua
+
+au FileType lua set tabstop=2 shiftwidth=2 noexpandtab
 
 
 " Plugins
@@ -86,7 +89,7 @@ execute pathogen#infect()
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if 1
+if 0
   " Use a colorscheme, e.g. from vimfiles/colors
   colorscheme molokai
 else
