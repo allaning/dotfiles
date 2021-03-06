@@ -76,6 +76,20 @@ au BufEnter,BufRead,BufNewFile,FileReadPost *.lua     setfiletype lua
 
 au FileType lua set tabstop=2 shiftwidth=2 noexpandtab
 
+" Abbreviations (enter :ab to list all abbreviations)
+" Enter abbreviation and hit a non-keyword char, e.g. Ctl-]
+
+" Roblox
+iab ffc FindFirstChild("
+iab wfc WaitForChild("
+iab ggs game:GetService("
+iab gws local Workspace = game:GetService("Workspace")
+iab grs local ReplicatedStorage = game:GetService("ReplicatedStorage")
+iab gss local ServerStorage = game:GetService("ServerStorage")
+iab gpl local Players = game:GetService("Players")
+iab gpr local Promise = require(ReplicatedStorage.Vendor.Promise)
+iab gu  local Util = require(ReplicatedStorage.Util)
+
 
 " Plugins
 
