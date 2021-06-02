@@ -14,14 +14,14 @@ To install the files and default configuration run the following:
     cd dotfiles
     bash install.sh
 
-This will install the default configuration files/directories, submodules, and create symbolic links for bundles and snippets. Most of the heavy lifting is done by install.sh.
+This will install the default configuration files/directories, submodules, and create symbolic links for bundles and snippets. Most of the heavy lifting is done by [install.sh](install.sh).
 
 
 ## Updating
 
 Submodule plug-ins generate `doc/tag` files associated with help documents every time Vim is launched. This creates conflicts associated with pulling, updating or committing changes back to the main repository. It's necessary to clean these out before running any pulls or commits.
 
-There are two shell scripts included to help in this process [clean.sh][clean.sh] and [update.sh][update.sh].
+There are two shell scripts included to help in this process [clean.sh](clean.sh) and [update.sh](update.sh).
 
 
 ### Updating From The Repository
