@@ -1,4 +1,4 @@
-﻿" Maintainer:   Lars Smit
+" Maintainer:   Lars Smit
 " Version:      1.1
 " Last Change:  19 januari 2013
 " Credits:      Vim color scheme "getafe"
