@@ -1,0 +1,14 @@
+# aing custom bashrc
+
+alias ll="ls -alF --color"
+alias ls="ls -aF --color"
+alias vi="vim"
+alias myrdp="~/Scripts/rdpRun"
+alias mytmux="~/Scripts/tmuxRun.bash"
+alias scripts="cd /proj/aing/scripts;pwd"
+alias term="gnome-terminal --geometry=120x50"
+#export PATH=$PATH:/import/opt/git/2.8.2/bin
+
+# use a vi-style line editing interface for bash from default emacs mode
+set -o vi
+

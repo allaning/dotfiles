@@ -22,8 +22,10 @@ set cmdheight=2
 " Automatically change the current directory
 set autochdir
 
+set undolevels=1000
 set nobackup
 set nowritebackup
+set directory=~/.vim/tmp/swap/
 
 " Use tags in parent directory
 set tags+=tags;/

@@ -3,10 +3,15 @@ Dotfiles
 
 - VIM configuration file(s)
 
-Create a symbolic link to the cloned git repo.  Example:
-```
-ln -s /home/allan/git/allaning/dotfiles/.vimrc ~/.vimrc
-```
+## Installation
+
+To install the files and default configuration run the following:
+
+    git clone https://github.com/allaning/dotfiles.git
+    cd dotfiles
+    bash install.sh
+
+This will install the default configuration files/directories, submodules, and create symbolic links for bundles and snippets. Most of the heavy lifting is done by the [install script][install.sh].
 
 
 - Auto Generate Ctag and Cscope files
