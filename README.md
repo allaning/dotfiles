@@ -3,7 +3,7 @@ Dotfiles
 
 - Linux and VIM configuration files
 
-Approach was borrowed from tlee.
+Approach was borrowed from tlee (https://github.com/tlee/vimfiles).
 
 
 ## Installation

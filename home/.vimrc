@@ -1,4 +1,12 @@
+" Use Pathogen to load bundles
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+"call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" Disable vi compatibility
 set nocompatible
+
 set incsearch
 set hlsearch
 set ignorecase
@@ -15,8 +23,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set list  " show hidden characters
-set listchars=tab:>-,trail:-,eol:¬
-set guifont=Monospace\ 8
+set listchars=tab:▸\ ,trail:-,eol:¬
 set cmdheight=2
 
 " Automatically change the current directory
@@ -26,6 +33,9 @@ set undolevels=1000
 set nobackup
 set nowritebackup
 set directory=~/.vim/tmp/swap/
+
+source $HOME/.vim/plugin/matchit.vim
+source $HOME/.vim/plugin/python_match.vim
 
 " Use tags in parent directory
 set tags+=tags;/
@@ -45,11 +55,21 @@ syntax on
 " Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
 
+
+" To view color swatch enter vim command:
+" :runtime syntax/colortest.vim
 set t_Co=256
 colorscheme molokai
 "colorscheme harlequin
-"hi LineNr guifg=#306888 guibg=grey15
-"hi Search guibg=#5080c0
+hi Search ctermfg=white ctermbg=darkblue
+
+
+" Better colors for vimdiff
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
@@ -99,10 +119,22 @@ nnoremap <leader>t :tab split<cr>
 vnoremap > >gv
 vnoremap < <gv
 
-" Navigate clist
-nnoremap <a-right> :cn<cr>
-nnoremap <a-left> :cp<cr>
+" Navigate buffers
+" (This isn't working in Red Hat linux)
+nnoremap <silent> <c-tab> :bn<cr>
+nnoremap <silent> <c-s-tab> :bp<cr>
 
+" Navigate clist
+" &term defined in .tmux.conf via default-terminal
+if &term == "screen-256color"
+  " Use along with xterm-keys in .tmux.conf
+  " See: http://vim.1045645.n5.nabble.com/Mapping-meta-key-within-tmux-td5716437.html
+  nnoremap <esc>[1;3C :cn<cr>
+  nnoremap <esc>[1;3D :cp<cr>
+else
+  nnoremap <a-right> :cn<cr>
+  nnoremap <a-left> :cp<cr>
+endif
 
 " Select all
 nnoremap <leader>a ggVG
