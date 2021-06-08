@@ -93,8 +93,8 @@ In a terminal, navigate to the top level directory containing
 the source code and execute the .bash script.
 
 Example:
-  cd /proj/aing
-  ~/GenerateCtagsCscopeFiles.bash
+    cd /proj/aing
+    ~/GenerateCtagsCscopeFiles.bash
 
 ### Windows
 
