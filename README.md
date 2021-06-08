@@ -5,6 +5,11 @@ Dotfiles
 
 Approach was borrowed from tlee (https://github.com/tlee/vimfiles).
 
+Dot files have been tested with the following versions:
+- Red Hat Enterprise Linux 8
+- VIM 8.0
+- tmux 2.7
+
 
 ## Installation
 

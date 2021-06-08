@@ -1,14 +1,28 @@
 # aing custom bashrc
 
+# use a vi-style line editing interface for bash from default emacs mode
+set -o vi
+
 alias ll="ls -alF --color"
 alias ls="ls -aF --color"
 alias vi="vim"
+
+alias cd..="cd .."
+alias cd...="cd ../.."
+alias cd....="cd ../../.."
+alias cd.....="cd ../../../.."
+
+
+# cd to path
+alias scripts="cd /proj/aing/scripts;pwd"
+
+# general
 alias myrdp="~/Scripts/rdpRun"
 alias mytmux="~/Scripts/tmuxRun.bash"
-alias scripts="cd /proj/aing/scripts;pwd"
 alias term="gnome-terminal --geometry=120x50"
-#export PATH=$PATH:/import/opt/git/2.8.2/bin
 
-# use a vi-style line editing interface for bash from default emacs mode
-set -o vi
+# projects
+alias roc="ssh roc-vsvr12"
+alias mydump="/import/scmbuilds/bld/maxlight/current/rhe6k2.6.32x86_64gcc446/bin/dump_mb"
+alias cdmax="cd /import/scmbuilds/bld/maxlight/current/rhe7x86_64/env"
 

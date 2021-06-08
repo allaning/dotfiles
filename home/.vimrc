@@ -49,12 +49,16 @@ set showcmd
 
 " Enable highlighting for syntax
 syntax on
+
 " Enable file type detection.
-" Use the default filetype settings, so that mail gets 'tw' set to 72,
-" 'cindent' is on in C files, etc.
-" Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
 
+" Settings for GVim
+if &term == ""
+  set lines=50 columns=180
+  set guioptions-=T  " hide toolbar buttons
+  "set guifont=courier_new:h9
+endif
 
 " To view color swatch enter vim command:
 " :runtime syntax/colortest.vim
@@ -62,6 +66,18 @@ set t_Co=256
 colorscheme molokai
 "colorscheme harlequin
 hi Search ctermfg=white ctermbg=darkblue
+
+" Cursor color in xterm
+if &term == "screen-256color"
+  " insert mode
+  let &t_SI = "\<Esc>]12;white\x7"
+  " otherwise
+  let &t_EI = "\<Esc>]12;white\x7"
+  silent !echo -ne "\033]12;white\007"
+  " reset cursor when vim exits
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+  " use \003]12;gray\007 for gnome-terminal and rxvt up to version 9.21
+endif
 
 
 " Better colors for vimdiff
@@ -109,7 +125,7 @@ nnoremap <c-l> <c-w>l
 " write buffer
 nnoremap <leader>w :w<cr>
 
-" Always show choices for multiple definitions
+" Always show choices for multiple ctag definitions
 nnoremap <c-]> g<c-]>
 
 " Open current buffer in new tab
@@ -120,15 +136,31 @@ vnoremap > >gv
 vnoremap < <gv
 
 " Navigate buffers
-" (This isn't working in Red Hat linux)
+" (This isn't working in RHEL8 xterm)
 nnoremap <silent> <c-tab> :bn<cr>
 nnoremap <silent> <c-s-tab> :bp<cr>
+
+" Settings for GVim
+if &term == ""
+  " Yank selected text to OS clipboard
+  vnoremap <leader>y "+y
+  " Yank inside word to OS clipboard
+  nnoremap <leader>yw "+yiw
+  " Yank inside Word to OS clipboard
+  nnoremap <leader>yW "+yiW
+
+  " Yank path and filename to OS clipboard (will not be on same line in buffer)
+  nnoremap <leader>yp :redir @+<cr>:pwd<cr>:redir end<cr>:let @+=@+."\\"<cr>:let @+=@+.@%<cr>
+  " Yank filename to OS clipboard
+  nnoremap <leader>yf :let @+=@%<cr>
+endif
 
 " Navigate clist
 " &term defined in .tmux.conf via default-terminal
 if &term == "screen-256color"
-  " Use along with xterm-keys in .tmux.conf
-  " See: http://vim.1045645.n5.nabble.com/Mapping-meta-key-within-tmux-td5716437.html
+  " In xterm
+  " Use these along with xterm-keys settings in .tmux.conf
+  " See http://vim.1045645.n5.nabble.com/Mapping-meta-key-within-tmux-td5716437.html
   nnoremap <esc>[1;3C :cn<cr>
   nnoremap <esc>[1;3D :cp<cr>
 else
