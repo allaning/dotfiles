@@ -65,7 +65,14 @@ endif
 set t_Co=256
 colorscheme molokai
 "colorscheme harlequin
-hi Search ctermfg=white ctermbg=darkblue
+hi Search ctermfg=white ctermbg=darkblue guifg=white guibg=#3377ff
+"hi LineNr guifg=#306888 guibg=grey15
+hi CursorLineNr guifg=#a8ffff guibg=grey15
+if v:version > 700
+    set cursorline
+    hi CursorLine guibg=grey5
+endif
+
 
 " Cursor color in xterm
 if &term == "screen-256color"

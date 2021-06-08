@@ -85,14 +85,20 @@ Test it out and if it's a keeper, add it to the repository, add it to the list b
 
 ## Auto Generate Ctag and Cscope files
 
-Place the GenerateCtagsCscopeFiles.bat|bash files at the top level of
-the source code. For Synergy, this can be your work area location; For
-ClearCase, it could be where your VOBs are located.
+### Linux
 
-Modify GenerateCtagsCscopeFiles.bash PATH_TO_SOURCE to point to the top
-level from which to start ctags and cscope.
+Modify GenerateCtagsCscopeFiles.bash to specify which directories to process.
 
-Modify LaunchGenerateCtagsCscopeFiles.bat to cd to the location of the
+In a terminal, navigate to the top level directory containing
+the source code and execute the .bash script.
+
+Example:
+  cd /proj/aing
+  ~/GenerateCtagsCscopeFiles.bash
+
+### Windows
+
+Modify LaunchGenerateCtagsCscopeFiles.bat to cd to the location of
 GenerateCtagsCscopeFiles.
 
 Add LaunchGenerateCtagsCscopeFiles.bat to your startup. In Windows 10,
