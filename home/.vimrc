@@ -67,10 +67,10 @@ colorscheme molokai
 "colorscheme harlequin
 hi Search ctermfg=white ctermbg=darkblue guifg=white guibg=#3377ff
 "hi LineNr guifg=#306888 guibg=grey15
-hi CursorLineNr guifg=#a8ffff guibg=grey15
+hi CursorLineNr guifg=#a8ffff guibg=grey5
 if v:version > 700
     set cursorline
-    hi CursorLine guibg=grey5
+    hi CursorLine guibg=grey10
 endif
 
 
@@ -147,21 +147,6 @@ vnoremap < <gv
 nnoremap <silent> <c-tab> :bn<cr>
 nnoremap <silent> <c-s-tab> :bp<cr>
 
-" Settings for GVim
-if &term == ""
-  " Yank selected text to OS clipboard
-  vnoremap <leader>y "+y
-  " Yank inside word to OS clipboard
-  nnoremap <leader>yw "+yiw
-  " Yank inside Word to OS clipboard
-  nnoremap <leader>yW "+yiW
-
-  " Yank path and filename to OS clipboard (will not be on same line in buffer)
-  nnoremap <leader>yp :redir @+<cr>:pwd<cr>:redir end<cr>:let @+=@+."\\"<cr>:let @+=@+.@%<cr>
-  " Yank filename to OS clipboard
-  nnoremap <leader>yf :let @+=@%<cr>
-endif
-
 " Navigate clist
 " &term defined in .tmux.conf via default-terminal
 if &term == "screen-256color"
@@ -178,9 +163,26 @@ endif
 " Select all
 nnoremap <leader>a ggVG
 
+" Change to binary mode
+" To revert, enter :%!xxd -r
+nnoremap <leader>b :%!xxd<cr>
 
 " Insert date at front
 nnoremap <f2> I<c-r>=strftime("%m/%d/%y")<cr> <esc>
 inoremap <f2> <c-r>=strftime("%m/%d/%y")<cr>
 
+" Settings for GVim
+if &term == ""
+  " Yank selected text to OS clipboard
+  vnoremap <leader>y "+y
+  " Yank inside word to OS clipboard
+  nnoremap <leader>yw "+yiw
+  " Yank inside Word to OS clipboard
+  nnoremap <leader>yW "+yiW
+
+  " Yank path and filename to OS clipboard (will not be on same line in buffer)
+  nnoremap <leader>yp :redir @+<cr>:pwd<cr>:redir end<cr>:let @+=@+."\\"<cr>:let @+=@+.@%<cr>
+  " Yank filename to OS clipboard
+  nnoremap <leader>yf :let @+=@%<cr>
+endif
 
