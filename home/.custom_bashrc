@@ -7,6 +7,9 @@ alias ll="ls -alF --color"
 alias ls="ls -aF --color"
 alias vi="vim"
 
+# recursive copy with progress shown
+alias pcp="rsync -r --progress"
+
 alias cd..="cd .."
 alias cd...="cd ../.."
 alias cd....="cd ../../.."
@@ -14,14 +17,18 @@ alias cd.....="cd ../../../.."
 
 
 # cd to path
+alias proj="cd /proj/aing"
 alias scripts="cd /proj/aing/scripts;pwd"
 
 # general
 alias myrdp="~/Scripts/rdpRun"
 alias mytmux="~/Scripts/tmuxRun.bash"
 alias term="gnome-terminal --geometry=120x50"
+alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+alias gitk="/import/opt/git/current/bin/gitk"
 
 # projects
+alias envs=". /proj/aing/scripts/sourceEnvs.bash"
 alias roc="ssh roc-vsvr12"
 alias mydump="/import/scmbuilds/bld/maxlight/current/rhe6k2.6.32x86_64gcc446/bin/dump_mb"
 alias cdmax="cd /import/scmbuilds/bld/maxlight/current/rhe7x86_64/env"
