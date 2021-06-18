@@ -7,6 +7,7 @@ FIND_EXE=/bin/find
 
 # Relative paths to source code
 SRC_TOP_DIRS=( everglades
+               gots
                maxlight
                platinumTools )
 
@@ -14,13 +15,25 @@ SRC_TOP_DIRS=( everglades
 ONLY_SUBDIRS=1
 SUB_DIRS=( src
            pysrc
+           iolib_7.0.1
            dev )
 
+CTAGS_TAGS_FILE="/proj/aing/tags"
+CSCOPE_FILES="/proj/aing/cscope.files"
+CSCOPE_OUT="/proj/aing/cscope.out"
 
 START_DIR=`pwd`
 echo Base directory: $START_DIR
 
+# Clear old cscope files
+rm -f ${CSCOPE_FILES}
+
 # Process each directory
+
+# Ctag calls after the first should append
+FIRST_CTAGS_CALL=1
+APPEND_FLAG="no"
+
 for PROJ_DIR in *
 do
   # Iterate directories within the project
@@ -32,32 +45,32 @@ do
 
       # If ONLY_SUBDIRS is true, then only process the specified subdirectories per SUB_DIRS
       if [[ $ONLY_SUBDIRS -eq 1 ]]; then
-        # Ctag calls after the first should append
-        FIRST_CTAGS_CALL=1
         for SUB_DIR in *
         do
           if [ -d "$SUB_DIR" ]; then  # If directory
             # Only process if it's in the SUB_DIRS list
             if [[ " ${SUB_DIRS[@]} " =~ " ${SUB_DIR} " ]]; then
+              echo ....$CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --append=${APPEND_FLAG} $SUB_DIR
+              $CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --append=${APPEND_FLAG} $SUB_DIR
               if [ $FIRST_CTAGS_CALL -eq 1 ]; then
-                echo ....$CTAGS_EXE --recurse $SUB_DIR
-                $CTAGS_EXE --recurse $SUB_DIR
                 FIRST_CTAGS_CALL=0
-              else
-                echo ....$CTAGS_EXE --recurse --append=yes $SUB_DIR
-                $CTAGS_EXE --recurse --append=yes $SUB_DIR
+                APPEND_FLAG="yes"
               fi
             fi
           fi
         done
       else
-        echo ....$CTAGS_EXE --recurse
-        $CTAGS_EXE --recurse
+        echo ....$CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --append=${APPEND_FLAG}
+        $CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --append=${APPEND_FLAG}
+        if [ $FIRST_CTAGS_CALL -eq 1 ]; then
+          FIRST_CTAGS_CALL=0
+          APPEND_FLAG="yes"
+        fi
       fi
 
       echo ..cscope
-      $FIND_EXE . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.java' > cscope.files
-      $CSCOPE_EXE -b -i cscope.files -f cscope.out
+      $FIND_EXE `pwd` -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.h' -o -name '*.py' -o -name '*.java' >> ${CSCOPE_FILES}
+      $CSCOPE_EXE -b -i ${CSCOPE_FILES} -f ${CSCOPE_OUT}
     fi
   fi
 

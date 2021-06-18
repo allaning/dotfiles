@@ -17,19 +17,32 @@ alias cd.....="cd ../../../.."
 
 
 # cd to path
-alias proj="cd /proj/aing"
-alias scripts="cd /proj/aing/scripts;pwd"
+alias proj="cd /proj/aing; pwd"
+alias scripts="cd /proj/aing/scripts; pwd"
 
 # general
 alias myrdp="~/Scripts/rdpRun"
 alias mytmux="~/Scripts/tmuxRun.bash"
 alias term="gnome-terminal --geometry=120x50"
-alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset'"
 alias gitk="/import/opt/git/current/bin/gitk"
+alias aspen="/import/scmbuilds/gots/aspen/current/release/bin/keywordeditor"
 
 # projects
 alias envs=". /proj/aing/scripts/sourceEnvs.bash"
 alias roc="ssh roc-vsvr12"
 alias mydump="/import/scmbuilds/bld/maxlight/current/rhe6k2.6.32x86_64gcc446/bin/dump_mb"
 alias cdmax="cd /import/scmbuilds/bld/maxlight/current/rhe7x86_64/env"
+
+CSCOPE_DB=/proj/aing/cscope.out; export CSCOPE_DB
+
+
+# remove unwanted aliases
+unalias cli
+unalias cp
+unalias dir
+unalias l
+unalias md
+unalias rd
+unalias up
 

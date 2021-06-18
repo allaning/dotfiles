@@ -39,9 +39,10 @@ if has("cscope")
 
     " add any cscope database in current directory
     if filereadable("cscope.out")
-        cs add cscope.out  
+        cs add cscope.out
     " else add the database pointed to by environment variable 
     elseif $CSCOPE_DB != ""
+        set nocscopeverbose
         cs add $CSCOPE_DB
     " else look up in the path for a cscope database and use its relative path
     else
