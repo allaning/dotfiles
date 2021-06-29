@@ -19,3 +19,6 @@
 [submodule "home/vimfiles/bundle_storage/ctrlp.vim"]
 	path = home/vimfiles/bundle_storage/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "home/vimfiles/bundle_storage/vim-lua"]
+	path = home/vimfiles/bundle_storage/vim-lua
+	url = https://github.com/tbastos/vim-lua.git

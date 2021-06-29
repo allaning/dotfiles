@@ -41,11 +41,13 @@ source $HOME/.vim/plugin/python_match.vim
 set tags+=tags;/
 
 " keep more context when scrolling off the end of a buffer
-set scrolloff=2
+"set scrolloff=2
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 " display incomplete commands
 set showcmd
+
+set guicursor+=a:blinkwait100-blinkoff150-blinkon400
 
 " Enable highlighting for syntax
 syntax on

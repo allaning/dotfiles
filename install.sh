@@ -9,6 +9,7 @@ default_bundles=(
   syntastic
   tabular
   taglist
+  vim-lua
   vim-surround
 )
 

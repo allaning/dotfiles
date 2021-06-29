@@ -15,7 +15,7 @@ SRC_TOP_DIRS=( everglades
 ONLY_SUBDIRS=1
 SUB_DIRS=( src
            pysrc
-           iolib_7.0.1
+           iolib_7.0.2.2
            dev )
 
 CTAGS_TAGS_FILE="/proj/aing/tags"
@@ -50,8 +50,8 @@ do
           if [ -d "$SUB_DIR" ]; then  # If directory
             # Only process if it's in the SUB_DIRS list
             if [[ " ${SUB_DIRS[@]} " =~ " ${SUB_DIR} " ]]; then
-              echo ....$CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --append=${APPEND_FLAG} $SUB_DIR
-              $CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --append=${APPEND_FLAG} $SUB_DIR
+              echo ....$CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --sort=no --tag-relative=no --append=${APPEND_FLAG} $PWD/$SUB_DIR
+              $CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --sort=no --tag-relative=no --append=${APPEND_FLAG} $PWD/$SUB_DIR
               if [ $FIRST_CTAGS_CALL -eq 1 ]; then
                 FIRST_CTAGS_CALL=0
                 APPEND_FLAG="yes"
@@ -60,8 +60,8 @@ do
           fi
         done
       else
-        echo ....$CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --append=${APPEND_FLAG}
-        $CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --append=${APPEND_FLAG}
+        echo ....$CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --sort=no --tag-relative=no --append=${APPEND_FLAG} $PWD
+        $CTAGS_EXE -f ${CTAGS_TAGS_FILE} --recurse --sort=no --tag-relative=no --append=${APPEND_FLAG} $PWD
         if [ $FIRST_CTAGS_CALL -eq 1 ]; then
           FIRST_CTAGS_CALL=0
           APPEND_FLAG="yes"
