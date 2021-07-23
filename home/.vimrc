@@ -124,6 +124,7 @@ let mapleader=","
 
 " easier esc
 imap jk <esc>
+vmap q <esc>
 
 " switch between windows
 nnoremap <c-j> <c-w>j

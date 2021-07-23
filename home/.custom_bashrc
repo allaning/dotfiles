@@ -3,6 +3,8 @@
 # use a vi-style line editing interface for bash from default emacs mode
 set -o vi
 
+export PATH=$PATH:/home/aing/bin:/import/opt/git/current/bin/
+
 alias ll="ls -alF --color"
 alias ls="ls -aF --color"
 alias vi="vim"
@@ -38,14 +40,14 @@ CSCOPE_DB=/proj/aing/cscope.out; export CSCOPE_DB
 
 # prompt (replace \W with $PWD for full path)
 # original was: PS1="[\u@\h \W]\$ "
-PS1='[\[\033[00;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]]\$ '
+PS1='[\[\e[38;5;184m\t \033[00;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]]\$ '
 
 # remove unwanted aliases
-unalias cli
-unalias cp
-unalias dir
-unalias l
-unalias md
-unalias rd
-unalias up
+unalias cli 2>/dev/null
+unalias cp 2>/dev/null
+unalias dir 2>/dev/null
+unalias l 2>/dev/null
+unalias md 2>/dev/null
+unalias rd 2>/dev/null
+unalias up 2>/dev/null
 

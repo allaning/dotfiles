@@ -83,8 +83,10 @@ Test it out and if it's a keeper, add it to the repository, add it to the list b
    1. Delete the relevant line from the `.gitmodules` file
    - Delete the relevant section from `.git/config`
    - Run `git rm --cached path_to_submodule` (**no trailing slash!!**)
+   - Note: You may need to `git add .` before executing the above command (else you'll get a warning)
    - Remove the directory from `bundle_storage`
    - Remove the symbolic link from `bundle`
+   - Remove module from `install.sh`
    - Remove any descriptions from the `README.md` file
 
 

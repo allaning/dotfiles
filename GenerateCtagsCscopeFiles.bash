@@ -15,6 +15,7 @@ SRC_TOP_DIRS=( everglades
 ONLY_SUBDIRS=1
 SUB_DIRS=( src
            pysrc
+           cppsrc
            iolib_7.0.2.2
            dev )
 
