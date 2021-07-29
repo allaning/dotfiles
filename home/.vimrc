@@ -174,7 +174,7 @@ nnoremap <leader>b :%!xxd<cr>
 nnoremap <f2> I<c-r>=strftime("%m/%d/%y")<cr> <esc>
 inoremap <f2> <c-r>=strftime("%m/%d/%y")<cr>
 
-" Settings for GVim
+" Mappings for GVim
 if &term == ""
   " Yank selected text to OS clipboard
   vnoremap <leader>y "+y
@@ -188,4 +188,10 @@ if &term == ""
   " Yank filename to OS clipboard
   nnoremap <leader>yf :let @+=@%<cr>
 endif
+
+
+" Tagbar settings
+let g:tagbar_position = 'leftabove vertical'
+let g:tagbar_show_data_type = 1
+nnoremap <silent> <F8> :TagbarToggle<cr>
 

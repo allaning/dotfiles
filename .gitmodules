@@ -22,3 +22,6 @@
 [submodule "home/vimfiles/bundle_storage/vim-lua"]
 	path = home/vimfiles/bundle_storage/vim-lua
 	url = https://github.com/tbastos/vim-lua.git
+[submodule "home/vimfiles/bundle_storage/tagbar"]
+	path = home/vimfiles/bundle_storage/tagbar
+	url = https://github.com/preservim/tagbar.git

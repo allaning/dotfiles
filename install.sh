@@ -8,6 +8,7 @@ default_bundles=(
   supertab
   syntastic
   tabular
+  tagbar
   taglist
   vim-lua
   vim-surround

@@ -73,10 +73,6 @@ New plug-ins need to be added to the `bundle_storage` directory and should be tr
     git submodule update
     bash add_bundle.sh <bundle-name>
 
-Test it out and if it's a keeper, add it to the repository, add it to the list below with a quick description and tell the world about it's greatness.
-
-[Vim Scripts][vim-scripts] has an enormous amount of repositories for all sorts of plug-ins. However, if the original author has their own github repository, try to clone from there instead.
-
 
 ### Removing Submodules
 
