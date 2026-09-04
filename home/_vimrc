@@ -21,7 +21,7 @@ set softtabstop=2
 set list  " show hidden characters
 set listchars=tab:>-,trail:-
 set lines=60 columns=120
-set guifont=courier_new:h9
+set guifont=courier_new:h10
 set cmdheight=2
 set guioptions-=T  " hide toolbar buttons
 set showtabline=2
@@ -38,6 +38,8 @@ syntax on
 " 'cindent' is on in C files, etc.
 " Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
+
+set cinoptions=-0#
 
 " Automatically change the current directory
 set autochdir
@@ -79,24 +81,34 @@ au FileType lua set tabstop=2 shiftwidth=2 noexpandtab
 " Abbreviations (enter :ab to list all abbreviations)
 " Enter abbreviation and hit a non-keyword char, e.g. Ctl-]
 
-" Roblox
-iab ffc FindFirstChild("
-iab wfc WaitForChild("
-iab ggs game:GetService("
-iab gws local Workspace = game:GetService("Workspace")
-iab grs local ReplicatedStorage = game:GetService("ReplicatedStorage")
-iab gss local ServerStorage = game:GetService("ServerStorage")
-iab gpl local Players = game:GetService("Players")
-iab gpr local Promise = require(ReplicatedStorage.Vendor.Promise)
-iab gu  local Util = require(ReplicatedStorage.Util)
-
-
 " Plugins
 
 " Installed in ~/vimfiles/autoload/
 " Loads plugins unzipped into ~/vimfiles/bundle/ directory
 " Run :Helptags to generate documentation for plugins in ~/vimfiles/bundle/
-execute pathogen#infect()
+"execute pathogen#infect()
+
+
+" vim-plug plugin manager usage:
+"   Update the plugin list ("Plug 'somebody/plugin-name')
+"   Run :PlugInstall to install the plugins.
+"   Run :PlugUpdate to update the plugins. After the update is finished, you can review the changes by pressing D in the window. Or you can do it later by running :PlugDiff.
+"   Delete or comment out Plug commands for the plugins you want to remove.
+"   Run :PlugClean. It will detect and remove undeclared plugins.
+
+" Plugin directory is optional
+call plug#begin()
+
+" Declare the list of plugins.
+Plug 'ervandew/supertab'
+Plug 'kien/ctrlp.vim'
+Plug 'preservim/nerdtree'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -156,21 +168,21 @@ let mapleader=","
 inoremap jk <esc>
 
 " Open vimrc
-nnoremap <leader>v :e ~\_vimrc<cr>
+nnoremap <leader>v :vsplit<cr>
 " Source vimrc
 nnoremap <leader>s :source ~\_vimrc<cr>
 
-" Back up vim files to shared drive
-nnoremap <leader>bu :!cp -R "C:/Users/1021887/_vimrc" "S:/Team Members/IngAllan/vim"<cr>:!cp -R "C:/Users/1021887/vimfiles" "S:/Team Members/IngAllan/vim"<cr>
-
-" Maximize window
-nnoremap <leader>x :simalt ~x<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>x :qa<cr>
 
 " Change to location of current file and show pwd after
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Write
 nnoremap <leader>w :w<cr>
+
+" Open current buffer in new tab
+nnoremap <leader>t :tab split<cr>
 
 " Always show choices for multiple definitions
 nnoremap <c-]> g<c-]>
@@ -180,9 +192,6 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-
-" Open current buffer in new tab
-nnoremap <leader>t :tab split<cr>
 
 " Keep selection after (un)indenting
 vnoremap > >gv
