@@ -1,6 +1,8 @@
 " Disable vi compatibility
 set nocompatible
 
+let mapleader=","
+
 set background=dark
 
 set incsearch
@@ -176,8 +178,6 @@ set statusline+=%<%P                " position
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let mapleader=","
-
 " easier esc
 imap jk <esc>
 vmap q <esc>
@@ -188,8 +188,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-nnoremap <leader>b :bn<cr>
+nnoremap <leader>b :bnext<cr>
 nnoremap <leader>q :q<cr>
+nnoremap <leader>v :vsplit<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :qa<cr>
 nnoremap <leader>X :qa!<cr>
