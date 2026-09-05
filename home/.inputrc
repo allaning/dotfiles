@@ -1,0 +1,5 @@
+
+# Search history for lines starting with whatever you've already typed
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
