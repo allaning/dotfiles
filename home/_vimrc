@@ -83,12 +83,6 @@ au FileType lua set tabstop=2 shiftwidth=2 noexpandtab
 
 " Plugins
 
-" Installed in ~/vimfiles/autoload/
-" Loads plugins unzipped into ~/vimfiles/bundle/ directory
-" Run :Helptags to generate documentation for plugins in ~/vimfiles/bundle/
-"execute pathogen#infect()
-
-
 " vim-plug plugin manager usage:
 "   Update the plugin list ("Plug 'somebody/plugin-name')
 "   Run :PlugInstall to install the plugins.
@@ -118,6 +112,7 @@ call plug#end()
 if 0
   " Use a colorscheme, e.g. from vimfiles/colors
   colorscheme molokai
+  set background=dark
 else
   " Use customized colorscheme
   colorscheme desert

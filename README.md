@@ -1,92 +1,40 @@
 Dotfiles
 ========
 
-- Linux and VIM configuration files
-
-Approach was borrowed from tlee (https://github.com/tlee/vimfiles).
+- Linux and utilities configuration files
 
 Dot files have been tested with the following versions:
-- Red Hat Enterprise Linux 8
-- VIM 8.0
-- tmux 2.7
+- Linux Mint 22.3 Cinnamon
+- VIM 9.1
+- tmux 3.4
 
 
 ## Installation
 
 To install the files and default configuration run the following:
 
+    cd ~
     git clone https://github.com/allaning/dotfiles.git
-    cd dotfiles
-    bash install.sh
+    cd dotfiles/
+    ./install.sh
 
-This will install the default configuration files/directories, submodules, and create symbolic links for bundles and snippets. Most of the heavy lifting is done by [install.sh](install.sh).
-
-
-## Updating
-
-Submodule plug-ins generate `doc/tag` files associated with help documents every time Vim is launched. This creates conflicts associated with pulling, updating or committing changes back to the main repository. It's necessary to clean these out before running any pulls or commits.
-
-There are two shell scripts included to help in this process [clean.sh](clean.sh) and [update.sh](update.sh).
+This will install the default configuration files/directories and create symbolic links. Most of the heavy lifting is done by [install.sh](install.sh).
 
 
-### Updating From The Repository
+## VIM Plug-Ins
 
-To update from the latest changes in the repository run the following:
+Vim plug-ins are managed using vim-plug (https://github.com/junegunn/vim-plug). Edit the .vimrc file to add and remove plugins.
 
-1. Quit out of Vim
-- `cd <dotfiles-repo>`
-- `bash clean.sh`
-- `git stash` or `git add` any updates from your environment spit out by the `clean.sh` call to `git status`
-- `git pull --rebase`
-
-Commit your changes back up to the repository.
-
-
-### Updating Submodules
-
-To pull upstream changes for all of the submodules run the following:
-
-1. Quit out of Vim
-- `cd <dotfiles-repo>`
-- `bash update.sh`
-- `git stash` or `git add` any updates from your environment spit out by the `clean.sh` call to `git status`
-- `git pull --rebase`
-
-## Plug-Ins
-
-Plug-ins are managed using [pathogen][pathogen]. All submodule plug-ins are stored in the `bundle_storage` directory and are not available to Vim until they are symlinked to the `bundle` directory. The `bundle` directory is ignored by the repository allowing custom configurations on a per install basis. To activate a plug-in run:
-
-    cd <dotfiles-repo>
-    bash add_bundle.sh <bundle-name>
-
-You'll need to restart Vim for the changes to take effect.
+vim-plug plugin manager usage:
+   Update the plugin list ("Plug 'somebody/plugin-name')
+   Reload the file or restart Vim, then you can:
+     :PlugInstall to install the plugins.
+     :PlugUpdate to update the plugins. After the update is finished, you can review the changes by pressing D in the window. Or you can do it later by running :PlugDiff.
+     Delete or comment out Plug commands for the plugins you want to remove.
+     :PlugClean. It will detect and remove undeclared plugins.
 
 
-### Adding New Plug-Ins As Submodules
-
-New plug-ins need to be added to the `bundle_storage` directory and should be treated as submodules. To add a new one run:
-
-    <Add new submodule to `default_bundles` in `install.sh`>
-    cd <dotfiles-repo>
-    git submodule add <remote_repository> home/vimfiles/bundle_storage/<bundle-name>
-    git submodule init
-    git submodule update
-    bash add_bundle.sh <bundle-name>
-
-
-### Removing Submodules
-
-   1. Delete the relevant line from the `.gitmodules` file
-   - Delete the relevant section from `.git/config`
-   - Run `git rm --cached path_to_submodule` (**no trailing slash!!**)
-   - Note: You may need to `git add .` before executing the above command (else you'll get a warning)
-   - Remove the directory from `bundle_storage`
-   - Remove the symbolic link from `bundle`
-   - Remove module from `install.sh`
-   - Remove any descriptions from the `README.md` file
-
-
-## Auto Generate Ctag and Cscope files
+## Generate Ctag and Cscope files
 
 ### Linux
 
@@ -97,7 +45,7 @@ the source code and execute the .bash script.
 
 Example:
 
-    cd /proj/aing
+    cd /proj/aing/
     ~/GenerateCtagsCscopeFiles.bash
 
 ### Windows

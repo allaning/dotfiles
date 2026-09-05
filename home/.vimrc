@@ -1,11 +1,7 @@
-" Use Pathogen to load bundles
-"runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-"call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 " Disable vi compatibility
 set nocompatible
+
+set background=dark
 
 set incsearch
 set hlsearch
@@ -15,7 +11,7 @@ set showmode
 set smartcase
 set autoindent
 set ruler
-"set number  " show line numbers
+set number  " show line numbers
 set relativenumber  " show relative line numbers
 set smartindent
 set expandtab
@@ -34,8 +30,8 @@ set nobackup
 set nowritebackup
 set directory=~/.vim/tmp/swap/
 
-source $HOME/.vim/plugin/matchit.vim
-source $HOME/.vim/plugin/python_match.vim
+"source $HOME/.vim/plugin/matchit.vim
+"source $HOME/.vim/plugin/python_match.vim
 
 " Use tags in parent directory
 set tags+=tags;/
@@ -65,8 +61,10 @@ endif
 " To view color swatch enter vim command:
 " :runtime syntax/colortest.vim
 set t_Co=256
+
 colorscheme molokai
 "colorscheme harlequin
+
 hi Search ctermfg=white ctermbg=darkblue guifg=white guibg=#3377ff
 "hi LineNr guifg=#306888 guibg=grey15
 hi CursorLineNr guifg=#a8ffff guibg=grey5
@@ -94,6 +92,64 @@ endif
 "highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 "highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 "highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+
+
+" Plugins
+
+" vim-plug plugin manager usage:
+"   Update the plugin list ("Plug 'somebody/plugin-name')
+"   Reload the file or restart Vim, then you can:
+"     :PlugInstall to install the plugins.
+"     :PlugUpdate to update the plugins. After the update is finished, you can review the changes by pressing D in the window. Or you can do it later by running :PlugDiff.
+"     Delete or comment out Plug commands for the plugins you want to remove.
+"     :PlugClean. It will detect and remove undeclared plugins.
+
+" Plugin directory is optional
+call plug#begin()
+
+" Declare the list of plugins.
+Plug 'ervandew/supertab'
+Plug 'kien/ctrlp.vim'
+Plug 'preservim/nerdtree'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vifm/vifm.vim'
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
+
+" CtrlP
+
+" Set this to 1 to set searching by filename (as opposed to full path) as the default:
+let g:ctrlp_by_filename = 1
+
+" Set this to 1 to set regexp search as the default:
+let g:ctrlp_regexp = 1
+
+" Set this to 1 if you want CtrlP to scan for dotfiles and dotdirs: >
+let g:ctrlp_show_hidden = 1
+
+
+" Tagbar settings
+
+let g:tagbar_position = 'leftabove vertical'
+let g:tagbar_show_data_type = 1
+nnoremap <silent> <F8> :TagbarToggle<cr>
+
+
+" Vifm
+
+" Replace netrw with vifm when you :edit a directory
+let g:vifm_replace_netrw = 1
+
+" Handy mappings to launch vifm as a file picker
+nnoremap <Leader>vv :EditVifm<CR>
+nnoremap <Leader>vs :SplitVifm<CR>
+nnoremap <Leader>vg :VsplitVifm<CR>
+nnoremap <Leader>vt :TabVifm<CR>
+nnoremap <Leader>vd :DiffVifm<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -132,8 +188,13 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" write buffer
+nnoremap <leader>b :bn<cr>
+nnoremap <leader>q :q<cr>
 nnoremap <leader>w :w<cr>
+nnoremap <leader>x :qa<cr>
+nnoremap <leader>X :qa!<cr>
+
+nnoremap <leader>f :Vifm<cr>
 
 " Always show choices for multiple ctag definitions
 nnoremap <c-]> g<c-]>
@@ -168,11 +229,28 @@ nnoremap <leader>a ggVG
 
 " Change to binary mode
 " To revert, enter :%!xxd -r
-nnoremap <leader>b :%!xxd<cr>
+"nnoremap <leader>b :%!xxd<cr>
 
 " Insert date at front
 nnoremap <f2> I<c-r>=strftime("%m/%d/%y")<cr> <esc>
 inoremap <f2> <c-r>=strftime("%m/%d/%y")<cr>
+
+" Toggle paste/nopaste
+set pastetoggle=<F9>
+
+" Toggle line numbers and special chars
+function! ToggleDisplayExtras()
+    if &list
+        set nonumber
+        set norelativenumber
+        set nolist
+    else
+        set number
+        set relativenumber
+        set list
+    endif
+endfunction
+nnoremap <F7> :call ToggleDisplayExtras()<CR>
 
 " Mappings for GVim
 if &term == ""
@@ -188,10 +266,4 @@ if &term == ""
   " Yank filename to OS clipboard
   nnoremap <leader>yf :let @+=@%<cr>
 endif
-
-
-" Tagbar settings
-let g:tagbar_position = 'leftabove vertical'
-let g:tagbar_show_data_type = 1
-nnoremap <silent> <F8> :TagbarToggle<cr>
 
