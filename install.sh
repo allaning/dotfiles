@@ -22,3 +22,11 @@ done
 echo "Symlinking vifmrc file"
 ln -sv $full_path/home/config/vifm/vifmrc $HOME/.config/vifm/vifmrc
 
+echo "Symlinking kitty.conf file"
+ln -sv $full_path/home/config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
+
+echo "Symlinking genmon files"
+for f in `ls -A $full_path/home/config/genmon-scripts/`; do
+  ln -sv $full_path/home/config/genmon-scripts/$f $HOME/.config/genmon-scripts/$f
+done
+

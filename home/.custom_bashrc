@@ -16,8 +16,8 @@ set -o vi
 PS1='[\[\e[38;5;184m\t \033[00;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]]\$ '
 
 
-alias ll="ls -alF --color"
-alias ls="ls -aF --color"
+alias ll="ls -alF --color --hyperlink=auto"
+alias ls="ls -aF --color --hyperlink=auto"
 alias vi="vim"
 
 # List and filter results
@@ -74,4 +74,7 @@ ffv() {
 
     vim - <<< "$results"
 }
+
+
+export PATH="$HOME/.local/bin:$PATH"
 
