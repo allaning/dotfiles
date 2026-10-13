@@ -5,3 +5,6 @@
 	ci = commit
 [include]
 	path = ~/.gitconfig-home
+[user]
+	email = xeero@yahoo.com
+	name = Allan Ing

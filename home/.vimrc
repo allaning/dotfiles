@@ -64,9 +64,6 @@ endif
 " :runtime syntax/colortest.vim
 set t_Co=256
 
-colorscheme molokai
-"colorscheme harlequin
-
 hi Search ctermfg=white ctermbg=darkblue guifg=white guibg=#3377ff
 "hi LineNr guifg=#306888 guibg=grey15
 hi CursorLineNr guifg=#a8ffff guibg=grey5
@@ -118,8 +115,22 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vifm/vifm.vim'
 
+" Colorschemes
+
+" Source: https://github.com/sainnhe/edge
+Plug 'sainnhe/edge'
+" Source: https://github.com/catppuccin/palette
+"Plug 'catppuccin/palette'
+" Source: https://github.com/catppuccin/vim
+Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+
+colorscheme catppuccin_mocha
+"colorscheme molokai
+"colorscheme harlequin
 
 
 " CtrlP
