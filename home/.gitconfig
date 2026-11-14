@@ -3,8 +3,16 @@
 	co = checkout
 	br = branch
 	ci = commit
+[user]
+	# NOTE FOR NEW SETUP: Remember to copy .gitconfig.local.template
+	# to .gitconfig.local and fill in your real email!
+	# Fallback values in case .gitconfig.local hasn't been created yet:
+	name = Your Name
+	email = placeholder@users.noreply.github.com
 [include]
 	path = ~/.gitconfig-home
-[user]
-	email = xeero@yahoo.com
-	name = Allan Ing
+	path = ~/.gitconfig.local
+[safe]
+	directory = /mnt/windows/Data/git/*
+[core]
+	autocrlf = input

@@ -55,7 +55,7 @@ filetype plugin indent on
 
 " Settings for GVim
 if &term == ""
-  set lines=50 columns=180
+  set lines=40 columns=150
   set guioptions-=T  " hide toolbar buttons
   "set guifont=courier_new:h9
 endif

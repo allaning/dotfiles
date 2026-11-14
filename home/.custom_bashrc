@@ -21,7 +21,9 @@ alias ls="ls -aF --color --hyperlink=auto"
 alias vi="vim"
 
 # List and filter results
-llg() { ls -alF --color | grep "$@"; }
+llg() {
+    ls -alF --color | grep "$@";
+}
 
 alias ..="cd .."
 alias 2..="cd ../.."
@@ -38,12 +40,21 @@ alias yt="cd /mnt/windows/Data/yt/ && pwd"
 # recursive copy with progress shown
 alias pcp="rsync -r --progress"
 
+# print black ink copy of file
+alias printbw="lp -o color-mode=monochrome"
+
 # misc command shortcuts
 alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset'"
+alias st="git st"
+alias stl="git st && gitlog"
 
 # cscope
 CSCOPE_DB=/proj/aing/cscope.out; export CSCOPE_DB
 
+# sort string for easier entry on mobile devices (e.g. for generated passwords)
+pwstr() {
+    python3 /mnt/windows/Data/git/utils/group_and_concatenate.py "$@"
+}
 
 # Find files
 _ff_core() {
